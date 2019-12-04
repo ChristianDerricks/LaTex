@@ -1,0 +1,29 @@
+%!TEX TS-program = lualatex
+%!TeX encoding = utf8
+
+\input{header}
+\input{config}	
+
+
+
+\begin{document}
+
+
+\frontmatter											% start page number counting here, however, you can also use the command after \maketitle (see a few lines below) 
+\pagenumbering{roman}								 	% overwrite settings for page number style. 
+% Valid options are: arabic, Roman, roman, Alph, alph
+% Alph and Roman for capital letters (default is roman through \frontmatter)
+
+
+\mainmatter									 	 		% begin main chapter here and start counting page numbers with arabic letters, starting with one)
+
+\include{./chapters/chapter_1}				 	 		% include chapters like this
+
+\appendix												% start the appendix at this point
+
+\pagenumbering{Roman}									% start using capital roman letters
+
+\listoffigures											% include list of figure
+
+
+\end{document}
