@@ -1,0 +1,54 @@
+\RequirePackage[l2tabu, orthodox]{nag}				% warns about some obsolete latex constructs
+													% \RequirePackage can be used before \documentclass while \usepackage can not
+
+\RequirePackage{luatex85}
+
+% ==============================================
+% =========== general document setup ===========
+% ==============================================
+
+\documentclass[
+	headsepline			=	true,					% horizontal line below head							(optional)
+	%headtopline		=	true,					% horizontal line above head 							(optional)
+	%footsepline	 	=	true,					% horizontal line above page number 					(optional)
+	%footbotline		=	true,					% horizontal line below page number 					(optional)
+	%english,										% second language used (watch order with ngerman!)
+	%ngerman										% main language in the document 
+]{scrbook}											% you can now put most options to the config.tex file}
+
+\usepackage[utf8]{inputenc}
+\usepackage{lipsum}									% option to make some dummy text for layout tests
+
+\usepackage[intlimits]{amsmath}						% you must set options for amsmath here
+\usepackage{amsfonts}								% additional fonts like \mathbb, \mathfrak
+\usepackage{amssymb}								% additional symbols
+\usepackage{siunitx}								% 
+
+% ==============================================
+% ================ page layout =================
+% ==============================================
+
+\usepackage{microtype}								% improves the spacing between words and letters
+\usepackage{scrlayer-scrpage}						% individual head and foot layout
+\usepackage{geometry}								% control and adjust page margin usage
+\usepackage{caption}								% to use numbers for images and tables
+\usepackage{float}
+
+% ==============================================
+% =============== miscellaneous ================
+% ==============================================
+
+\usepackage{pgfplots}								% needed for matlab2tikz
+\pgfplotsset{compat=newest}
+\usepackage{tikz}									% used for creating graphics in LaTex
+\usepgfplotslibrary{patchplots}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{plotmarks}
+\usepackage{grffile}
+
+
+\usepackage[										% WARNING: make sure this is the last package to load with the glossary package as the only exception to this rule
+	unicode	=	true,								% use unicode encoding
+	linktoc	=	all,								% make all pages and descriptions in every table as a link
+]{hyperref}
