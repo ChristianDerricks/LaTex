@@ -1,0 +1,136 @@
+% ==============================================
+% ======= definition for global variables ======
+% ==============================================
+
+\graphicspath{{figures/}}									% Path to (multiple) image folder(s)/directory(s). 
+															% Use always {{}} and yes two curly braces are the minimum even for one folder/directory)
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.eps}				% for images with the same name but different extensions use this order to select the perferred one
+												
+\KOMAoptions{
+	paper			=	a4,									% layout for DIN A4
+	twoside			=	on,									% layout for double sided printing
+	fontsize		=	12pt,								% font size 12pt
+	BCOR			=	12mm,								% correction for fixation	
+	DIV				=	16,									% DIV-value for creating the print space	
+	parskip			=	half,								% spacing between paragraphs							(maybe known as obsolete option halfparskip (obsolete))
+	headinclude		=	true,								% include head in layout computation
+	headings		=	openright,							% chapters start odd pages	
+	captions		=	tableheading,						% use table headings with correct spacing				(maybe known as option tablecaptionabove (obsolete))
+	listof			=	totoc,								% this option will add the table of images and table of tables to the table of contents
+	numbers			=	noenddot,							% chapter numbers without full stop						(maybe known as option pointlessnumbers (obsolete))
+	bibliography	=	totoc,								% put bibliography into table of contents				(maybe known as option bibtotoc (obsolete))
+}
+
+% ==============================================
+% =========== define a set of colors ===========
+% ==============================================
+
+% a set of eight colors that can be distinguished even by colorblind people
+\definecolor{cb-darkgrey}{RGB}      { 50,  50,  50}			% darkgrey
+\definecolor{cb-blue}{RGB}          {  0, 114, 178}			% blue
+\definecolor{cb-orange}{RGB}        {230, 159,   0}			% orange
+\definecolor{cb-bluishgreen}{RGB}   {  0, 158, 115}			% bluishgreen
+\definecolor{cb-vermillion}{RGB}    {213,  94,   0}			% vermillion
+\definecolor{cb-skyblue}{RGB}       { 86, 180, 233}			% skyblue
+\definecolor{cb-reddishpurple}{RGB} {204, 121, 167}			% reddishpurple
+\definecolor{cb-yellow}{RGB}        {240, 228,  66}			% yellow
+
+% ==============================================
+% =============== miscellaneous ================
+% ==============================================
+
+\numberwithin{equation}{section}							% amsmath: numbering equations
+%\nocite{*}													% use all bibliography entries even if not cited! 
+															% (not recommanded but might also not work) Delete every aux file for testing
+
+\sisetup{load-configurations = abbreviations}				% allow abbreviations e.g. \si{\kilo\gram\metre\per\square\second}
+
+% ==============================================
+% ======== general page style settings =========
+% ==============================================
+
+\pagestyle{scrheadings}										% enable scrheadings layout for head and foot
+
+\geometry{
+	bindingoffset	=	10mm,								%
+	left			=	3cm,								%
+	right			=	3cm,								%
+	top				=	3cm,								%
+	bottom			=	3cm,								%
+	includeheadfoot
+}
+
+\linespread{1.0}\selectfont									% change space between lines
+
+% ==============================================
+% =============== caption style ================
+% ==============================================
+
+\captionsetup{												% for figures and tables
+	font			=	small,								% set font size for caption and text (use labelfont and textfont for seperate or exclusive settings)
+	textfont		=	it,									% name font as italic
+	labelfont		=	bf,									% set the label font to a specific format (bf = boldfont)
+	justification	=	justified,							% caption will use justification format
+	format			=	plain,								% specify if the text should start under the caption name or not (try hang to see the difference)
+	indention		=	.5cm,								% use an extra indention starting at the second line of the caption
+	labelformat		=	default,							% other options are empty, brace, simple and parens
+	labelsep		=	space,								% other options are none, colon, period, quad (bigger space), newline and endash
+	skip			=	10pt,								% set the vertical space between the caption and the figure or table contents (default 10pt)
+	position		=	bottom,								% assume that the caption is standing at the bottom of the environment and ther		\glsentryitem{##1}\glstarget{##1}{\glossentryname{##1}} &efore the space (skip=<amount>) is placed above
+	listformat		=	simple								% specify the list format for \listoffigures	
+}
+
+% ==============================================
+% =========== hyperref configuration ===========
+% ==============================================
+
+% for more options see http://tug.ctan.org/tex-archive/macros/latex/contrib/hyperref/doc/manual.html#x1-130003.9
+\hypersetup{
+	pdfencoding		=	unicode,							% use unicode encoding for the pdf
+%	backref 		= 	true,								% 
+	plainpages		=	false,
+	pdftitle		=	{thesis title},
+	pdfsubject		=	{thesis subject},
+	pdfauthor		=	{first name, last name},
+	pdfkeywords		=	{word1, word2, word3},
+	colorlinks		=	{true},
+	linkcolor		=	{cb-blue},
+	citecolor		=	{cb-vermillion},
+	urlcolor		=	{blue},
+	pdfstartpage	=	1,									% set the start page of the document (in this case the page one with latin style)
+	pdfproducer		=	{Latex with hyperref, or other system},
+	pdfcreator		=	{pdflatex, or other tool}
+}
+
+\usepackage{listings}
+
+\lstset{ %
+	language          = Matlab,
+	abovecaptionskip  = 5pt,
+	alsoletter        = {.},
+	backgroundcolor   = \color{white},
+	basicstyle        = \tiny,
+	breaklines        = true,
+	breakatwhitespace = false,
+	captionpos        = b,
+	frame             = single,
+	inputpath         = ./matlab/,
+	numbers           = left,
+	numbersep         = 8pt,
+	showspaces        = false,
+	showstringspaces  = false,
+	showtabs          = false,
+	stepnumber        = 1,
+	tabsize           = 2,
+	title             = \lstname,
+	commentstyle      = \color{cb-bluishgreen},
+	keywordstyle      = \color{cb-blue},
+	keywordstyle      = [2]\color{cb-vermillion},
+	keywordstyle      = [3]\color{cb-skyblue},
+	numberstyle       = \tiny\color{cb-darkgrey},
+	rulecolor         = \color{black},
+	stringstyle       = \color{cb-orange},
+	morekeywords      = {.fig,.ax},
+	morekeywords      = [2]{initialize,color,colorlist,number\_of\_figures,number\_of\_axes, config, create\_figures\_and\_load\_saved\_position},
+	morekeywords      = [3]{tikz, tikz.texfilename, tikz.makelegend,tikz.legend,  tikzoptions,m2t\_export}
+}
